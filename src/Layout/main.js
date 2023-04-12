@@ -1,9 +1,9 @@
 import React from 'react';
+import Navbar from '../Pages/Shared/Navbar/Navbar';
 import Footer from '../Pages/Shared/Footer/Footer';
 import { Outlet } from 'react-router-dom';
-import Navbar from '../Pages/Shared/Navbar/Navbar';
 
-const main = () => {
+const Main = () => {
     return (
         <div>
             <Navbar></Navbar>
@@ -13,4 +13,4 @@ const main = () => {
     );
 };
 
-export default main;
+export default Main;
