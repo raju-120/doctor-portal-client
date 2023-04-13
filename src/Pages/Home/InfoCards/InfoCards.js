@@ -23,13 +23,13 @@ const InfoCards = () => {
         {
             id:3,
             name: 'Contact us now',
-            description: '09610-009612',
+            description: '+09610-009612',
             icon: phone,
             bgClass: 'bg-primary bg-gradient-to-r from-primary to-secondary'
         } 
     ]
     return (
-        <div className='grid mb-5 gap-6 grid-cols-1 md:grid-cols-2 lg:grid-cols-3'>
+        <div className='grid gap-6 grid-cols-1 md:grid-cols-2 lg:grid-cols-3'>
             
             {
                 cardsData.map(card => <InfoCard
