@@ -1,5 +1,4 @@
 import React from 'react';
-import bg from '../../../../assets/images/bg.png'
 import chair from '../../../../assets/images/chair.png';
 import ParimaryButton from '../../../../components/PrimaryButton/ParimaryButton';
 import './Banner.css';
