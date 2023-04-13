@@ -10,7 +10,7 @@ const Navbar = () => {
                     <li><Link to='/login'>Login</Link></li>
     </React.Fragment>
     return (
-        <div className="navbar bg-base-100">
+        <div className="navbar bg-base-100 flex justify-between">
             <div className="navbar-start">
                 <div className="dropdown">
                 <label tabIndex={0} className="btn btn-ghost lg:hidden">
@@ -23,12 +23,9 @@ const Navbar = () => {
                 <Link to='/' className="btn btn-ghost normal-case text-xl">Doctors Portal</Link>
             </div>
             <div className="navbar-center hidden lg:flex">
-                <ul className="menu menu-horizontal px-1">
+                <ul className="menu menu-horizontal px-5">
                     {menuItems}
                 </ul>
-            </div>
-            <div className="navbar-end">
-                <Link className="btn">Get started</Link>
             </div>
         </div>
     );
