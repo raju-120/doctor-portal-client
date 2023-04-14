@@ -8,4 +8,5 @@ const ParimaryButton = ({children}) => {
     );
 };
 
+
 export default ParimaryButton;
