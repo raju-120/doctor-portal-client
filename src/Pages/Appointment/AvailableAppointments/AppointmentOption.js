@@ -1,7 +1,6 @@
 import React from 'react';
-import ParimaryButton from '../../../components/PrimaryButton/ParimaryButton';
 
-const AppointmentOption = ({option}) => {
+const AppointmentOption = ({option, setTreatment}) => {
     const {name, slots} = option;
     return (
         <div>
@@ -11,7 +10,14 @@ const AppointmentOption = ({option}) => {
                     <p>{slots.length > 0 ? slots[0] : 'Try another day.'}</p>
                     <p>{slots.length} {slots.length > 1 ? 'spaces' : 'space'} available </p>
                     <div className="card-actions justify-center">
-                        <ParimaryButton>Book Appointment</ParimaryButton>
+                        <label 
+                            disabled= {slots.length === 0}
+                            htmlFor="booking-modal" 
+                            className="btn btn-primary text-white"
+                            onClick={() => setTreatment(option)}
+                            
+                            > Book Appointment
+                        </label>
                     </div>
                 </div>
             </div>
