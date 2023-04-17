@@ -6,7 +6,7 @@ import { toast } from 'react-hot-toast';
 
 const SignUp = () => {
     const {register , formState: { errors } ,handleSubmit} = useForm();
-    const {createUser, updateUser} = useContext(AuthContext);
+    const {createUser, updateUser , googleSignIn} = useContext(AuthContext);
     const [signUpError , setSignUpError] = useState(''); 
     
     const handleSignUp = (data) =>{
@@ -28,6 +28,16 @@ const SignUp = () => {
             console.log(err)
             setSignUpError(err.message)
         })
+    }
+
+    const handleGoogleLogIn = () =>{
+        
+        googleSignIn()
+        .then( result =>{
+             const user = result.user;
+             console.log(user);
+            })
+        .catch(err => console.error(err))
     }
 
 
@@ -88,7 +98,7 @@ const SignUp = () => {
                 </form>
                 <p>Already have an account? <Link to='/login' className='text-secondary'>Please Login</Link> </p>
                 <div className='divider'>OR</div>
-                <button className='btn btn-outline w-full'>CONTINUE WITH GOOGLE</button>
+                <button onClick={handleGoogleLogIn} className='btn btn-outline w-full'>CONTINUE WITH GOOGLE</button>
             </div>
         </div>
     );
