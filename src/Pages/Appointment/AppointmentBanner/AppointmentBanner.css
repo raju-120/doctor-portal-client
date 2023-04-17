@@ -1,8 +1,8 @@
-.bgImg{
-    background-image: url(../../../../assets/images/bg.png);
+.ApImg{
+    background-image: url(../../../assets/images/bg.png);
     width: 1450px;
-    height: 838px;
-    background-size: cover;
+    height: 450px;
+    background-size: cover; 
     border-radius: 25px;
 }
 
