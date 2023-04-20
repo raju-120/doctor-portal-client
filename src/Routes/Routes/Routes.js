@@ -4,8 +4,9 @@ import Main from "../../Layout/Main";
 import Login from "../../Pages/Login/Login";
 import Appointment from "../../Pages/Appointment/Appointment/Appointment";
 import SignUp from "../../Pages/SignUp/SignUp";
-import Deshboard from "../../Pages/Deshboard/Deshboard/Deshboard";
 import PrivateRoutes from "../PrivateRoute/PrivateRoutes";
+import DashboardLayout from "../../Layout/DashboardLayout/DashboardLayout";
+import MyAppointment from "../../Pages/Deshboard/MyAppointment/MyAppointment";
 
 const router = createBrowserRouter([
     {
@@ -32,8 +33,14 @@ const router = createBrowserRouter([
         
     },
     {
-        path: '/deshboard',
-        element: <PrivateRoutes><Deshboard></Deshboard></PrivateRoutes>
+        path: '/dashboard',
+        element: <PrivateRoutes> <DashboardLayout></DashboardLayout> </PrivateRoutes>,
+        children:[
+            {
+                path: '/dashboard',
+                element: <MyAppointment></MyAppointment>
+            }
+        ]
     }
 ])
 
