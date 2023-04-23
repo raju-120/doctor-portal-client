@@ -3,14 +3,19 @@ import { useForm } from 'react-hook-form';
 import { Link, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../Context/AuthProvider';
 import { toast } from 'react-hot-toast';
+import useToken from '../../useHooks/useToken';
 
 const SignUp = () => {
     const {register , formState: { errors } ,handleSubmit} = useForm();
     const {createUser, updateUser , googleSignIn} = useContext(AuthContext);
     const [signUpError , setSignUpError] = useState(''); 
+    const [createdUserEmail, setCreatedUserEmail] = useState('');
+    const [token] = useToken(createdUserEmail);
     const navigate = useNavigate();
     
-
+    if(token){
+        navigate('/');
+    }
 
     const handleSignUp = (data) =>{
         
@@ -46,10 +51,12 @@ const SignUp = () => {
         })
         .then(res => res.json())
         .then(data => {
-            console.log(data);
-            navigate('/');
+            setCreatedUserEmail(email);
+            
         })
     }
+
+   
 
     const handleGoogleLogIn = () =>{
         
@@ -114,7 +121,7 @@ const SignUp = () => {
                         
                     </div>
 
-                    <input className='btn btn-accent w-full mt-4' value="SignUp" type="submit" />
+                    <input className='btn btn-accent w-full mt-4' value="Sign Up" type="submit" />
                     {signUpError && <p className='text-red-600'>{signUpError}</p>}
                 </form>
                 <p>Already have an account? <Link to='/login' className='text-secondary'>Please Login</Link> </p>
