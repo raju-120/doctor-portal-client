@@ -4,8 +4,10 @@ import { Link, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../Context/AuthProvider';
 import { toast } from 'react-hot-toast';
 import useToken from '../../useHooks/useToken';
+import useTitle from '../../useHooks/useTitle';
 
 const SignUp = () => {
+    useTitle('Signup');
     const {register , formState: { errors } ,handleSubmit} = useForm();
     const {createUser, updateUser , googleSignIn} = useContext(AuthContext);
     const [signUpError , setSignUpError] = useState(''); 
@@ -42,7 +44,7 @@ const SignUp = () => {
 
     const saveUser = (name, email) =>{
         const user = {name, email};
-        fetch('http://localhost:5000/users', {
+        fetch('https://doctors-portal-server-ashy-xi.vercel.app/users', {
             method: 'POST',
             headers: {
                 'content-type' : 'application/json'

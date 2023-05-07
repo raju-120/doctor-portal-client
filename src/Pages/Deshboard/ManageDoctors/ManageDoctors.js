@@ -3,8 +3,10 @@ import { useQuery } from 'react-query';
 import Loading from '../../Shared/Loading/Loading';
 import ConfirmationModal from '../../Shared/ConfirmationModal/ConfirmationModal';
 import { toast } from 'react-hot-toast';
+import useTitle from '../../../useHooks/useTitle';
 
 const ManageDoctors = () => {
+    useTitle('ManagesDoc');
     const [deletingDoctor, setDeletingDoctor] = useState(null);
 
     const closeModal = () =>{
@@ -16,7 +18,7 @@ const ManageDoctors = () => {
         queryKey: [],
         queryFn: async() =>{
             try{
-                const res = fetch('http://localhost:5000/doctors',{
+                const res = fetch('https://doctors-portal-server-ashy-xi.vercel.app/doctors',{
                     headers: {
                         authorization: `bearer ${localStorage.getItem('accessToken')}`
                     }
@@ -34,7 +36,7 @@ const ManageDoctors = () => {
     }
 
     const handleDoctorDelete = doctor =>{
-        fetch(`http://localhost:5000/doctors/${doctor._id}`,{
+        fetch(`https://doctors-portal-server-ashy-xi.vercel.app/doctors/${doctor._id}`,{
             method: 'DELETE',
             headers: {
                 authorization: `bearer ${localStorage.getItem('accessToken')}`

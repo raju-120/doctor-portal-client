@@ -4,8 +4,10 @@ import { useQuery } from 'react-query';
 import Loading from '../../Shared/Loading/Loading';
 import { toast } from 'react-hot-toast';
 import { useNavigate } from 'react-router-dom';
+import useTitle from '../../../useHooks/useTitle';
 
 const AddDoctor = () => {
+    useTitle('AddDoctor');
     const {register , formState: { errors } ,handleSubmit} = useForm();
     const imageHostKey = process.env.REACT_APP_imgBb_key;
     const navigate = useNavigate();
@@ -13,7 +15,7 @@ const AddDoctor = () => {
     const {data: specialties, isLoading} = useQuery({
         queryKey: ['specialty'],
         queryFn: async () =>{
-            const res = await fetch('http://localhost:5000/appointmentSpecialty');
+            const res = await fetch('https://doctors-portal-server-ashy-xi.vercel.app/appointmentSpecialty');
             const data = await res.json();
             return data;
         }
@@ -42,7 +44,7 @@ const AddDoctor = () => {
                 }
 
                 //save doctor information to the database
-                fetch('http://localhost:5000/doctors', {
+                fetch('https://doctors-portal-server-ashy-xi.vercel.app/doctors', {
                     method: 'POST',
                     headers: {
                         'content-type' : 'application/json',
