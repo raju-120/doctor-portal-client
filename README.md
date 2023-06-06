@@ -1,4 +1,4 @@
-# Movie Review Content
+# Doctor Portal Contents
 
 
 ## Frontend
@@ -20,3 +20,7 @@
 * MongoDb for data-base
 * Json Web Token
 * Vercel
+
+##payments
+
+* Stripes as a payment getway
