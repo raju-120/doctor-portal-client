@@ -1,5 +1,6 @@
 # Doctor Portal Contents
 
+#Live-demo(https://dental-portal25896.netlify.app)
 
 ## Frontend
 * Reactjs
@@ -17,10 +18,10 @@
 ## Backend
 * Nodejs
 * ExpressJs
-* MongoDb for data-base
-* Json Web Token
+* MongoDB for database
+* JSONWebToken
 * Vercel
 
 ##payments
 
-* Stripes as a payment getway
+* Stripes as a payment gateway
