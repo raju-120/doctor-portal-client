@@ -22,6 +22,6 @@ Live-demo(https://dental-portal25896.netlify.app)
 * JSONWebToken
 * Vercel
 
-##payments
+## Payments
 
 * Stripes as a payment gateway
